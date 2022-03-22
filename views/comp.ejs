@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<body>
+
+    <%- include('./partials/nav.ejs') %>
+    
+    <main class="comp-main">
+
+        <div class="comp-synergies">
+            <h2>Synergies</h2>
+
+            <ul class="synergies-list">
+                <% if (synergies.length > 0) { %>
+                    <% synergies.forEach(s => { %>
+                        <li>
+                            <div class="synergy-details">
+                                <img src=<%= `../img/${ s.name.toLowerCase() }.png` %> alt=<%= `${ s.name.toLowerCase() }_icon` %> class="thumbnail">
+                                <p><%= s.name %></p>
+                                <p>4</p>
+                            </div>
+                            <div class="synergy-champions">
+                                <% if (s.champions.length > 0) { %>
+                                    <% s.champions.forEach(c => { %>
+                                        <img src=<%= `../img/${ c.toLowerCase() }.png` %> alt=<%= `${ c.toLowerCase() }_icon` %> class="thumbnail">
+                                    <% }) %>
+                                <% } %>
+                            </div>
+                        </li>
+                    <% }) %>
+                <% } %>
+
+            </ul>
+
+        </div>
+        
+
+        <div class="comp-my-comp">
+            <h2>My Comp</h2>
+
+        </div>
+
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+</html>

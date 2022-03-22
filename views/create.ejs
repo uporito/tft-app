@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<body>
+
+    <%- include('./partials/nav.ejs') %>
+
+    <main>
+        
+        <div class="content">
+            <form action="/champions" method="POST">
+                <label for="name">Name :</label>
+                <input type="text" id="name-input" name="name">
+                <label for="synergy">Synergy :</label>
+                <input type="text" id="synergy-input" name="synergy">
+                <label for="cost">Cost :</label>
+                <input type="text" id="cost-input" name="cost">
+                <button>Create</button>
+            </form>
+        </div>
+
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+</html>

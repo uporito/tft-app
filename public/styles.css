@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+/* resets */
+body, p, div, a, h1, h2, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    color: #272727;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color : cornflowerblue;
+    cursor: pointer;
+}
+
+a.delete:hover {
+    color:crimson;
+}
+
+a:visited{
+    color: inherit;
+}
+
+/* page elements */
+
+/* nav */
+nav {
+    width: 100%;
+    margin-bottom: 60px;
+    padding: 40px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    background-color: ghostwhite;
+    box-sizing: border-box;
+}
+
+.site-title {
+    font-size: 3em;
+    font-weight: 600;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    list-style-type: none;
+    margin-left: 50px;
+    font-size: 1em;
+}
+
+.thumbnail {
+    height: 45px;
+    clip-path: circle();
+    margin: 20px;
+}
+
+/* main */
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+
+
+/* CHAMPIONS */
+
+.details{
+    margin: 40px 0;
+}
+
+.details h2 {
+    margin-bottom: 20px;
+}
+
+.details p {
+    text-align: left;
+}
+
+/* champions list */
+
+/* .list-controls {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px auto;
+}
+
+.list-controls * {
+    background-color: #e0e0f3;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-family: 'Nunito', 'sans-serif';
+    font-size: 0.9em;
+}
+
+.list-controls button:hover {
+    cursor: pointer;
+} */
+
+#champions-list {
+    margin: 40px 0;
+}
+
+.champion-list-item {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: ghostwhite;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.champion-list-item.list-header {
+    background-color: #e0e0f3;
+}
+
+.champion-list-item.list-header * {
+    cursor: pointer;
+}
+
+/* .list-header {
+    font-weight: 600;
+} */
+
+.champion-list-item * {
+    list-style-type: none;
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+}
+
+
+
+/* CHAMPION DETAILS */
+
+.champion-banner {
+    position: relative;
+    height: 650px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.champion-banner img {
+    display: block;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));
+    width: 1200px;
+    height: 650px;
+}
+
+.champion-banner h1 {
+    position: absolute;
+    bottom: 60px;
+    color: ghostwhite;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-size: 5em;
+}
+
+.champion-banner h2 {
+    position: absolute;
+    bottom: 30px;
+    color: ghostwhite;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    /* font-size: 6em; */
+}
+
+/* COMP */
+
+.comp-main {
+    max-width: 100%;
+    height: 100vh;
+    margin: 0;
+    margin-top: -60px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    text-align: center;
+}
+
+.comp-main h2 {
+    margin : 20px;
+}
+
+.comp-synergies {
+    grid-column: 1;
+    background-color: coral;
+}
+
+.synergies-list li {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid white;
+}
+
+.synergy-details {
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+.synergy-details p {
+    margin: 20px;
+}
+
+.synergy-champions {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.synergy-champions .thumbnail {
+    margin: 20px -5px;
+}
+
+.synergy-champions .thumbnail:first-child {
+    margin-left: 10px;
+}
+
+.comp-my-comp {
+    grid-column: 2;
+    background-color: orchid;
+}
+
+
+/* footer */
+footer {
+    text-align: center;
+    margin: 80px auto 20px;
+}

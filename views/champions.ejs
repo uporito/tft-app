@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+<script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+</script>
+
+<body>
+    
+    <%- include('./partials/nav.ejs') %>
+    <main>
+        <section class="details">
+            <h2>TFT Champions</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure sapiente mollitia aliquam atque quae aspernatur eveniet magni delectus velit distinctio! Explicabo eligendi dolore quas assumenda debitis exercitationem, repudiandae ipsum libero?</p>
+        </section>
+                
+        <div id="champion-list">
+            <div class="champion-list-item list-header">
+                <p class="name sort" data-sort="name">Name</p>
+                <p class="synergy sort" data-sort="synergy">Synergy</p>
+                <p class="cost sort" data-sort="cost">Cost</p>
+                <p><a href="/create">New champion</a></p>
+            </div>
+            <ul class="list champion-list">
+                <% if (champions.length > 0) { %>
+                    <% champions.forEach(c => { %>
+                        <li class="champion-list-item">
+                            <a href=<%= `/champions/${c.id}` %> class="name"><%= c.name %></a>
+                            <div class="synergies"><%= c.synergy %>
+                                <% if (c.synergies.length > 0) { %>
+                                    <% c.synergies.forEach(s => { %>
+                                        <p><%= s %></p>
+                                    <% }) %>
+                                <% } %>
+                            </div>
+                            <p class="cost"><%= c.cost %></p>
+                            <p><a class="delete" data-doc="<%= c._id %>">delete</a></p>
+                        </li>
+                    <% }) %>
+                <% } %>
+            </ul>
+        </div>
+
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+
+    <script>
+        var championList = new List('champion-list', { 
+            valueNames: ['name', 'synergy', 'cost']
+        });
+    </script>
+
+    <script>
+        document.querySelectorAll('a.delete').forEach((t) => {
+            t.addEventListener('click', (e) => {
+                const endpoint = `/champions/${t.dataset.doc}`;
+                fetch(endpoint, { method : 'DELETE' })
+                    .then((response) => response.json())
+                    .then((data) => window.location.href=data.redirect)
+                    .catch((e) => console.log(e))
+            })
+        });
+
+    </script>
+</body>
+</html>

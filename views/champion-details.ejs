@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<body>
+
+    <%- include('./partials/nav.ejs') %>
+
+    <main>
+        
+        <div class="champion-banner">
+            <img src=<%= `../img/${champion.name.toLowerCase()}.png` %> alt="">
+            <!-- <img src="../img/caitlyn.png" %> alt=""> -->
+            <div class="gradient"></div>
+            <h1><%= champion.name %></h1>
+            <h2>1, 2, 3, 4</h2>
+        </div>
+
+        <div class="champion-details">
+            <ul class="synergies">
+                <% if (champion.synergies.length > 0) { %>
+                    <% champion.synergies.forEach(s => { %>
+                        <li>
+                            <div><%= s %></div>
+                        </li>
+                    <% }) %>
+                <% } %>
+            </ul>
+        </div>
+        
+        <p><a class="update" data-doc="<%= champion._id %>">update</a></p>
+
+        <script>
+            const button = document.querySelector('a.update')
+            button.addEventListener('click', (e) => {
+                console.log('update clicked')
+                const endpoint = `/champions/${button.dataset.doc}`;
+                const requestOptions = {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name : 'Jhin', synergies : ['Clockwork', 'Sniper'], cost : 4 })
+                };
+                fetch(endpoint, requestOptions)
+                    // .then(response => response.json())
+                    // .then(data => element.innerHTML = data.updatedAt );
+            });
+    
+        </script>
+
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+</html>
