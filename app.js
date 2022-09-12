@@ -9,7 +9,7 @@ const Champion = require('./models/champion.js');
 const Synergy = require('./models/synergy.js');
 
 // connecting to mongodb
-const dbURI = 'mongodb+srv://<username>:<password>@uporito.m6lrh.mongodb.net/tft-app?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://uporito:sPiPvU7RTmK5pqL3@uporito.m6lrh.mongodb.net/tft-app?retryWrites=true&w=majority';
 
 mongoose.connect(dbURI, { useNewUrlParser : true, useUnifiedTopology : true })
     .then((result) => app.listen(3000, console.log('Listening on port 3000...')))
